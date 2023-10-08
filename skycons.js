@@ -527,7 +527,7 @@
         this.resizeClear = !!(opts && opts.resizeClear);
     };
 
-    Skycons.CLEAR_DAY = function(ctx, t, color) {
+    Skycons.SUNNY = function(ctx, t, color) {
         var w = ctx.canvas.width,
             h = ctx.canvas.height,
             s = Math.min(w, h);
@@ -544,6 +544,15 @@
     };
 
     Skycons.PARTLY_CLOUDY_DAY = function(ctx, t, color) {
+        var w = ctx.canvas.width,
+            h = ctx.canvas.height,
+            s = Math.min(w, h);
+
+        sun(ctx, t, w * 0.625, h * 0.375, s * 0.75, s * STROKE, color);
+        cloud(ctx, t, w * 0.375, h * 0.625, s * 0.75, s * STROKE, color);
+    };
+
+    Skycons.PARTLY_CLOUDY = function(ctx, t, color) {
         var w = ctx.canvas.width,
             h = ctx.canvas.height,
             s = Math.min(w, h);
@@ -570,6 +579,15 @@
     };
 
     Skycons.RAIN = function(ctx, t, color) {
+        var w = ctx.canvas.width,
+            h = ctx.canvas.height,
+            s = Math.min(w, h);
+
+        rain(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, color);
+        cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, color);
+    };
+
+    Skycons.PATCHY_RAIN_POSSIBLE = function(ctx, t, color) {
         var w = ctx.canvas.width,
             h = ctx.canvas.height,
             s = Math.min(w, h);
